@@ -1,20 +1,30 @@
 var app=angular.module("myApp", []);
 app.controller("myController",["$scope","$http", function($scope,$http) {
-	var person1={
-		name:"Habeeb",
-		email:"ferozhabeeb@gmail.com",
-		mobile:"7416786987"
+	var refresh=function() {
+	$http.get("/contactList").success(function(response) {
+	$scope.contactList=response;	
+	$scope.contact="";
+	});
 	}
-	var person2={
-		name:"Ashraf",
-		email:"ferozhabeeb9@gmail.com",
-		mobile:"1234567890"
-	}
-	var person3={
-		name:"feroz",
-		email:"habeebashraf.sk@gmail.com",
-		mobile:"2345678910"
+	
+	refresh();
+
+	$scope.addContact=function() {
+	$http.post("/contactList",$scope.contact).success(function(response) {
+	console.log(response);
+	refresh();
+	})
 	}	
-	var contactList=[person1,person2,person3];
-	$scope.contactList=contactList;
-}])
+
+/*	$scope.editContact=function() {
+	$http.get("/contactList/:id",$scope.contact).success(function(response) {
+	console.log(response);
+	refresh();
+	})
+	}*/
+
+
+
+}]);
+
+

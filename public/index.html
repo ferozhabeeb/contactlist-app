@@ -8,15 +8,15 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	
 
 	</head>
 
 	<body>
-		<div>
-			<h1>Hello buddy !!</h1>
-			<table>
+		<div class="container">
+			<h1>Company Details Form</h1>
+			<table class="table">
 				<thead>
 					<tr>
 						<th>
@@ -31,6 +31,28 @@
 					</tr>
 				</thead>
 				<tbody>
+					<tr>
+						<td>
+							<input type="text" class="form-control" ng-model="contact.name">
+						</td>
+						<td>
+							<input type="text" class="form-control" ng-model="contact.email">
+						</td>
+						<td>
+							<input type="text" class="form-control" ng-model="contact.mobile">
+						</td>
+						<td>
+							<button class="btn btn-primary" ng-click="addContact()">
+								add contact
+							</button>
+						</td>
+						<td>
+							<button class="btn btn-info" ng-click="updateContact()">
+								update contact
+							</button>
+						</td>
+					</tr>
+
 					<tr ng-repeat="contact in contactList">
 						<td>
 							{{contact.name}}
@@ -41,10 +63,17 @@
 						<td>
 							{{contact.mobile}}
 						</td>
+						<td>
+							<button class="btn btn-danger" ng-click="removeContact(contact._id)">remove</button>
+						</td>
+						<td>
+							<button class="btn btn-info" ng-click="editContact(contact._id)">edit</button>
+						</td>
 					</tr>
 				</tbody>
 			</table>		
 		</div>
 		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="controller.js"></script>
 	</body>
 </html>
