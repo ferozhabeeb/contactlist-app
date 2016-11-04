@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html  ng-app="myApp" ng-controller="myController">
+	<head>
+		<title>Index</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<style type="text/css">
+		#logregdiv	 {
+			display:none;
+			
+			border-radius: 4%;
+			margin-top: 10%;
+			}
+		#but{
+			float: right;
+		}
+		#logregdiv{
+		background-color: white;
+		
+		}
+		#main{
+		
+		}
+		#loginfrom{
+		float:left;
+		}
+		#regfrom{
+		float:right;
+		}
+
+		#banner{
+			margin-left: 23%;
+			margin-top: 15%;
+
+		}
+		
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			
+				$("#but").click(function() {
+				$("#logregdiv").toggle();
+				});
+			});
+	</script>
+
+	</head>
+
+	<body background="images/bgimg.jpg">
+
+		<div class="container">
+			<h1><font color="white">F2F-C Home </font></h1>
+			
+				<button class="btn btn-primary btn-lg" id="but" data-toggle="modal" 
+				data-target="#myModal">Login / Register</button>
+		</div>
+		
+		<div id="logregdiv">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel-heading" style="background-color: white; ">
+					<div class="row">
+						<div class="col-xs-6">
+							<a href="#" class="active" id="login-form-link">Login</a>
+								<div id="loginfrom">
+								<form name="myForm">
+									<table align="center">
+										<tr>
+											<td>Name</td>
+											<td><input type="text" class="form-control" name="name" ng-model="name" required>
+												<span style="color:red" ng-show="myForm.name.$touched && myForm.name.$error.required">Please enter  name
+												</span>
+											</td>
+										</tr>
+										
+										<tr>
+											<td>Password</td>
+											<td><input type="password" name="password" class="form-control" ng-model="password" required><span style="color:red" ng-show="myForm.password.$touched && myForm.password.$invalid">Please enter  password
+												</span></td>
+										</tr>		
+										
+										<tr>						
+											<td>
+												<button class="btn btn-primary" ng-click="mylogin()"> Login</button>
+											</td>
+										</tr>
+									</table>
+								</form>		
+								</div>
+						</div>
+						<div class="col-xs-6">
+							<a href="#" id="register-form-link">Register</a>
+								<div id="regfrom">
+								<form name="regForm">
+									<table align="center">
+										<tr>
+											<td>Name</td>
+											<td><input type="text" class="form-control" name="name1" ng-model="contact.name" required>
+											<span style="color:red" ng-show="regForm.name1.$touched && regForm.name1.$invalid">Please enter  Name
+												</span></td>
+										</tr>
+										<tr>
+											<td>Email</td>
+											<td><input type="" class="form-control" name="email1"ng-model="contact.email" required><span style="color:red" ng-show="regForm.email1.$touched && regForm.email1.$invalid">Please enter  Email
+												</span></td>
+										</tr>	
+										<tr>
+											<td>password</td>
+											<td><input type="password" class="form-control" name="pwd"ng-model="contact.password" required><span style="color:red" ng-show="regForm.pwd.$touched && regForm.pwd.$invalid">Please enter  Password
+												</span></td>
+										</tr>		
+										<tr>
+											<td>Mobile</td>
+											<td><input type="text" class="form-control" name="mobile" ng-model="contact.mobile" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="10" required><span style="color:red" ng-show="regForm.mobile.$touched && regForm.mobile.$invalid">Please enter  Mobile Number
+												</span></td>	
+										</tr>
+										<tr>						
+											<td>
+												<button class="btn btn-primary" ng-click="addContact()">Register</button>
+											</td>
+										</tr>
+									</table>	
+									</form>
+								</div>
+								
+						</div>
+					</div>
+				</div>	
+					<div id="main">
+					
+					</div>
+			</div>			
+		</div>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="controller.js"></script>
+	</body>
+</html>

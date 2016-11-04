@@ -25,12 +25,25 @@ Contact.getContacts(function(err,data) {
 	}
 		
 	res.json(data);
+//	console.log(data);
 })
 })
 
 app.post("/contactList", function(req, res) {
 var body=req.body;//given by body-parser
 Contact.addContacts(body,function(err,data) {
+	if (err) {
+		throw err;
+	}
+	res.json(data);	
+	console.log(data);
+	
+})
+})
+
+app.post("/myloginlist", function(req, res) {
+//var body=req.body;//given by body-parser
+Contact.getlogindetails(/*body,*/function(err,data) {
 	if (err) {
 		throw err;
 	}

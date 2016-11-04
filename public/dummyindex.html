@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html  ng-app="myApp" ng-controller="myController">
+	<head>
+		<title>Index</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<style type="text/css">
+		#regdiv	 {
+			/*display:none;*/
+			background-color: cyan;
+			height: 40%;
+			width: 30%;
+			border-radius: 4%;
+			margin-left: 31%;
+			margin-top: 10%;
+			}
+		#but{
+			float: right;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			
+				$("#but").click(function() {
+				$("#regdiv").toggle();
+				});
+			});
+	</script>
+
+	</head>
+
+	<body>
+		<div class="container">
+			<h1>RTC Registration Form</h1>
+			
+				<button class="btn btn-primary btn-lg" id="but" data-toggle="modal" 
+				data-target="#myModal">Login / Register</button>
+		</div>
+		
+		<div id="regdiv">
+			<table align="center">
+					<tr>
+						<td>Name</td>
+						<td><input type="text" class="form-control" ng-model="contact.name"></td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td><input type="text" class="form-control" ng-model="contact.email"></td>
+					</tr>	
+					<tr>
+						<td>password</td>
+						<td><input type="password" class="form-control" ng-model="contact.password"></td>
+					</tr>		
+					<tr>
+						<td>Mobile</td>
+						<td><input type="text" class="form-control" ng-model="contact.mobile"></td>	
+					</tr>
+					<tr>						
+						<td>
+							<button class="btn btn-primary" ng-click="addContact()">Register</button>
+						</td>
+					</tr>
+			</table>	
+			
+			</div>
+<!-- 						<td>
+							<button class="btn btn-info" ng-click="updateContact()">
+								update contact
+							</button>
+						</td> -->
+					<!-- </tr>
+
+						<td>
+							<button class="btn btn-info" ng-click="editContact(contact._id)">edit</button>
+						</td>
+					</tr> -->					
+					<!-- <tr ng-repeat="contact in contactList">
+						<td>
+							{{contact.name}}
+						</td>
+						<td>
+							{{contact.email}}
+						</td>
+						<td>
+							{{contact.password}}
+						</td>
+						<td>
+							{{contact.mobile}}
+						</td>
+					 -->	<!-- <td>
+							<button class="btn btn-danger" ng-click="removeContact(contact._id)">remove</button>
+						</td> -->
+	
+	
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="controller.js"></script>
+	</body>
+</html>
